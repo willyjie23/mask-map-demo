@@ -40,14 +40,21 @@ import cityName from './assets/cityName.json';
 
 export default {
   name: 'App',
-  data: () => ({
-    cityName,
-    // select 先暫時設定為空物件
-    select: {
-      city: '臺北市',
-      area: '中正區',
-    },
-  }),
+  data() {
+    return { 
+      cityName,
+      select: {
+        city: '臺北市',
+        area: '中正區',
+      }
+    }
+  },
+  mounted() {
+    const api = 'https://raw.githubusercontent.com/kiang/pharmacies/master/json/points.json'
+    this.$http.get(api).then(function (response) {
+      console.log(response);
+    })
+  },
 }
 </script>
 
