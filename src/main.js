@@ -4,6 +4,8 @@ import App from './App.vue'
 import axios from 'axios';
 import VueAxios from 'vue-axios';
 
+const vm = createApp(App)
 
-createApp(App).use(VueAxios, axios).mount('#app');
+vm.use(VueAxios, axios)
+vm.mount('#app');
 
